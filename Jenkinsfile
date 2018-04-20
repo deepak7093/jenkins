@@ -1,4 +1,3 @@
-Jenkinsfile (Declarative Pipeline)
 pipeline {
     agent {
         docker { image 'deepak7093/nvm' }
