@@ -22,7 +22,7 @@ pipeline {
 			agent { label "docker_image_builder"}
   			steps {
 			script {
-  			docker.withRegistry("https://1234567890.dkr.ecr.us-east-1.amazonaws.com", "ecr:us-east-1:demo-ecr-credentials") {
+  			docker.withRegistry("https://registry.hub.docker.com", "dockerhub") {
     		docker.image("demo").push("demo:${env.BUILD_ID}")
   			}
   			}
