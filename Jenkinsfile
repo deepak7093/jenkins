@@ -1,12 +1,17 @@
 pipeline {
     agent {
-        docker { image 'deepak7093/nvm' }
+        dockerfile true
     }
     stages {
-        stage('Test') {
+        stage('FetchGITChanges') {
             steps {
-                sh 'node --version'
+                  checkout scm
+                  docker.withRegistry('https://registry.example.com', 'credentials-id') {
+            	  def customImage = docker.build("my-image:${env.BUILD_ID}")
+    			  customImage.push()
+    				
             }
         }
     }
+}
 }
