@@ -2,6 +2,7 @@ pipeline {
 	agent {
     	node { label 'docker_image_builder' }
     }
+  stages {
     stage 'Checkout' {
   		git 'ssh://git@github.com:irwin-tech/docker-pipeline-demo.git'
   	}
@@ -16,4 +17,5 @@ pipeline {
  	   	docker.image('demo').push('demo:${env.BUILD_ID}')
   		}
   	}
+   }
 }
