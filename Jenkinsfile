@@ -23,7 +23,8 @@ pipeline {
   			steps {
 			script {
   			docker.withRegistry("https://registry.hub.docker.com", "dockerhub") {
-    		docker.image("deepak7093/demo:${env.BUILD_ID}").push("${env.BUILD_ID}")
+    		Image = docker.image("deepak7093/demo:${env.BUILD_ID}")
+			Image.push()
   			}
   			}
 			}
