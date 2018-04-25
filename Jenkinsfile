@@ -5,7 +5,7 @@ pipeline {
     stages {
     	stage("Checkout") {
     		steps {
-  			git "ssh://git@github.com:irwin-tech/docker-pipeline-demo.git"
+  			checkout scm
   			}
   		}
 
