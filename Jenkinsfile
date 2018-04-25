@@ -13,7 +13,7 @@ pipeline {
 			agent { label "docker_image_builder"}
   			steps {
 			script {
-  			docker.build("demo")
+  			docker.build("deepak7093/demo:${env.BUILD_ID}")
   			}
 			}
   		}
